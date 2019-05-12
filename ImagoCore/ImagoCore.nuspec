@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>TinyTina</authors>
+    <owners>$author$</owners>
+    <iconUrl>http://imago-rp.de/resources/assets/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Bug fixed: Testdata has real random values.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>imago</tags>
+  </metadata>
+</package>

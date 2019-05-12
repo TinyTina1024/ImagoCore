@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8BA483A-4C03-4F3E-ACA0-6FF2D005043F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ImagoCore</RootNamespace>
+    <AssemblyName>ImagoCore</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ImagoCore.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\Enumeration.cs" />
+    <Compile Include="Enums\ImagoAttribut.cs" />
+    <Compile Include="Enums\ImagoFertigkeit.cs" />
+    <Compile Include="Enums\ImagoFertigkeitsKategorie.cs" />
+    <Compile Include="Enums\ImagoKoerperTeil.cs" />
+    <Compile Include="Enums\ImagoNichtSteigerbareFertigkeit.cs" />
+    <Compile Include="Enums\ImagoRasse.cs" />
+    <Compile Include="Enums\KoerperTeilZustand.cs" />
+    <Compile Include="Enums\SpielerBereich.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestData\TestData.cs" />
+    <Compile Include="Util\MathHelper.cs" />
+    <Compile Include="Models\Attribut.cs" />
+    <Compile Include="Models\AttributeCollection.cs" />
+    <Compile Include="Models\BeprobbareFertigkeit.cs" />
+    <Compile Include="Models\BeprobbareFertigkeitBase.cs" />
+    <Compile Include="Models\Events\AttributChangedEventArgs.cs" />
+    <Compile Include="Models\Events\FaktischerWertChangedEventArgs.cs" />
+    <Compile Include="Models\Events\INotifyAttributChanged.cs" />
+    <Compile Include="Models\Events\INotifyFaktischerWertChanged.cs" />
+    <Compile Include="Models\Events\INotifyNatuerlicherWertChanged.cs" />
+    <Compile Include="Models\Events\NatuerlicherWertChangedEventArgs.cs" />
+    <Compile Include="Models\Fertigkeit.cs" />
+    <Compile Include="Models\FertigkeitBase.cs" />
+    <Compile Include="Models\FertigkeitsKategorie.cs" />
+    <Compile Include="Models\FertigkeitsKategorieCollection.cs" />
+    <Compile Include="Models\ImagoEntitaet.cs" />
+    <Compile Include="Models\ImagoEntitaetFactory.cs" />
+    <Compile Include="Models\INwBerechenbar.cs" />
+    <Compile Include="Models\ITrefferpunkteBerechenbar.cs" />
+    <Compile Include="Models\KoerperTeil.cs" />
+    <Compile Include="Models\KoerperTeileCollection.cs" />
+    <Compile Include="Models\Modifikation.cs" />
+    <Compile Include="Models\Spieler.cs" />
+    <Compile Include="Models\SteigerbareFertigkeitBase.cs" />
+    <Compile Include="Models\Strategies\ArmTrefferpunkteBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\BeinTrefferpunkteBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\EgoRegenerationNatuerlicherWertBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\FertigkeitsKategorieNatuerlicherWertBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\FertigkeitVeraendernRegeln.cs" />
+    <Compile Include="Models\Strategies\FertigkeitVeraendernService.cs" />
+    <Compile Include="Models\Strategies\IFertigkeitVeraendernService.cs" />
+    <Compile Include="Models\Strategies\INatuerlicherWertBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\InitiativeNatuerlicherWertBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\ITrefferpunkteBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\KopfTrefferpunkteBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\LastgrenzeBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\SchadensModifikationNatuerlicherWertBerechnenStrategy.cs" />
+    <Compile Include="Models\Strategies\TorsoTrefferpunkteBerechnenStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
