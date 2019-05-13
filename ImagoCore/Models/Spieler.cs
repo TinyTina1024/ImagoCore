@@ -115,10 +115,13 @@ namespace ImagoCore.Models
         {
             var oldValue = fertigkeit.SteigerungsWert;
             _fertigkeitVeraendernService.SteigereFertigkeit(ref fertigkeit);
-            //uebertragen der ep auf die kategorie, bei steigern einer fertigkeit
-            if (fertigkeit is FertigkeitsKategorie || fertigkeit is Attribut)
+            
+            //uebertragen der ep auf die attribute. noch nicht umgesetzt, da der anwender dafuer ein attribut auswaehlen muss.
+            //optionen: event und vermerken der moeglichen steigerungen in attributecollection
+            if (fertigkeit is FertigkeitsKategorie)
             { }
-            else
+            //uebertragen der ep auf die kategorie, bei steigern einer fertigkeit
+            if ( fertigkeit is Fertigkeit)
             {
                 if (fertigkeit.SteigerungsWert != oldValue)
                 {
@@ -139,7 +142,7 @@ namespace ImagoCore.Models
                 //kategorie reduzieren nur moeglich, wenn ein passendes attribut ep hat                
                 //mMn nicht umsetzen
             }
-            else
+            if (fertigkeit is Fertigkeit)
             {
                 //fertigkeit reduzieren nur moeglich, wenn kategorie mind 1 ep hat
 

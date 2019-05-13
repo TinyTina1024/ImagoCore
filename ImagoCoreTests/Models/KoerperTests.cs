@@ -4,7 +4,7 @@ using ImagoCore.Models;
 using ImagoCore.Enums;
 using System.Collections;
 
-namespace ImagoApp.Test.Models
+namespace ImagoCore.Tests.Models
 {
     public class KoerperTests
     {

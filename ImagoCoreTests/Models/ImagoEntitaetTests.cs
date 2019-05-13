@@ -2,7 +2,7 @@
 using ImagoCore.Models;
 using Xunit;
 
-namespace ImagoApp.Test.Models
+namespace ImagoCore.Tests.Models
 {
     public class ImagoEntitaetTests
     {

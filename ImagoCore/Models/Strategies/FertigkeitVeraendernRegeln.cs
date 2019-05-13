@@ -11,7 +11,7 @@ namespace ImagoCore.Models.Strategies
 
         public static int GetReduzierenKosten(SteigerbareFertigkeitBase fertigkeit)
         {
-            if (fertigkeit is Models.Attribut)
+            if (fertigkeit is Attribut)
                 return GetReduzierenKostenAttribut(fertigkeit.SteigerungsWert);
            
             if (fertigkeit is FertigkeitsKategorie)
@@ -24,15 +24,13 @@ namespace ImagoCore.Models.Strategies
 
         public static int GetSteigernKosten(SteigerbareFertigkeitBase fertigkeit)
         {
-            if (fertigkeit is Models.Attribut)
+            if (fertigkeit is Attribut)
                 return GetSteigernKostenAttribut(fertigkeit.SteigerungsWert);
             
             if (fertigkeit is FertigkeitsKategorie)
                 return GetSteigernKostenFertigkeitsKategorie(fertigkeit.SteigerungsWert);
             
-            return GetSteigernKostenFertigkeit(fertigkeit.SteigerungsWert);
-
-            throw new ArgumentException();
+            return GetSteigernKostenFertigkeit(fertigkeit.SteigerungsWert);            
         }
 
         private static int GetSteigernKostenAttribut(int steigerungsWert)
