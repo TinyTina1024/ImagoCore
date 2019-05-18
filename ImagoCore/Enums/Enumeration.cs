@@ -13,15 +13,17 @@ namespace ImagoCore.Enums
     {
         private readonly int _value;
         private readonly string _displayName;
+        private readonly string _abbreviation;
 
         protected Enumeration()
         {
         }
 
-        protected Enumeration(int value, string displayName)
+        protected Enumeration(int value, string displayName, string abbreviation)
         {
             _value = value;
             _displayName = displayName;
+            _abbreviation = abbreviation;
         }
 
         public int Value
@@ -32,6 +34,11 @@ namespace ImagoCore.Enums
         public string DisplayName
         {
             get { return _displayName; }
+        }
+
+        public string Abbreviation
+        {
+            get { return _abbreviation; }
         }
 
         public override string ToString()

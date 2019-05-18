@@ -12,7 +12,7 @@ namespace ImagoCore.Enums
         {
 
         }
-        public KoerperTeilZustand(int value, string displayName) : base(value, displayName)
+        private KoerperTeilZustand(int value, string displayName) : base(value, displayName, string.Empty)
         {
 
         }

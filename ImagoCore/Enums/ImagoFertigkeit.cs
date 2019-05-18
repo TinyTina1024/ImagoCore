@@ -69,7 +69,7 @@ namespace ImagoCore.Enums
 
         }
 
-        private ImagoFertigkeit(int value, string displayName) : base(value, displayName)
+        private ImagoFertigkeit(int value, string displayName) : base(value, displayName, string.Empty)
         {
 
         }

@@ -15,7 +15,7 @@ namespace ImagoCore.Enums
         {
 
         }
-        public ImagoRasse(int value, string displayName) : base(value, displayName)
+        private ImagoRasse(int value, string displayName) : base(value, displayName, string.Empty)
         {
 
         }

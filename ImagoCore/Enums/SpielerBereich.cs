@@ -17,7 +17,7 @@ namespace ImagoCore.Enums
 
         }
 
-        private SpielerBereich(int value, string displayName) : base(value, displayName)
+        private SpielerBereich(int value, string displayName) : base(value, displayName, string.Empty)
         {
 
         }

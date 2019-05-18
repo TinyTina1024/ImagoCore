@@ -9,7 +9,7 @@
     <iconUrl>http://imago-rp.de/resources/assets/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Bug fixed: Testdata has real random values.</releaseNotes>
+    <releaseNotes>Enums have abbreviation.</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>imago</tags>
   </metadata>
