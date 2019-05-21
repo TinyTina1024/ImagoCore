@@ -8,13 +8,13 @@ namespace ImagoCore.Models
 {
     public class FertigkeitsKategorie : SteigerbareFertigkeitBase, INotifyFaktischerWertChanged, INwBerechenbar
     {
-        public ImagoAttribut[] AttributReferenzen;
+        public AttributReferenzen AttributReferenzen { get; private set; }        
 
         public event EventHandler<FaktischerWertChangedEventArgs> FaktischerWertChanged;        
 
         public FertigkeitsKategorie(ImagoEntitaet identifier, ImagoAttribut[] attributReferenzen) : base(identifier)
         {            
-            AttributReferenzen = attributReferenzen;
+            AttributReferenzen = new AttributReferenzen( attributReferenzen );
             _kategorieBerechnenStrategy = new FertigkeitsKategorieNatuerlicherWertBerechnenStrategy(attributReferenzen);            
         }
         public FertigkeitsKategorie()

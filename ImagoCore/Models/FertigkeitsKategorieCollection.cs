@@ -16,11 +16,7 @@ namespace ImagoCore.Models
         public FertigkeitsKategorie Webkunst { get; set; }
         public FertigkeitsKategorie Wissenschaft { get; set; }
         public FertigkeitsKategorie Handwerk { get; set; }
-        public FertigkeitsKategorie Soziales { get; set; }
-
-        public int Count => 8;
-
-        public bool IsReadOnly => true;
+        public FertigkeitsKategorie Soziales { get; set; }        
 
         public FertigkeitsKategorieCollection()
         {
@@ -112,7 +108,7 @@ namespace ImagoCore.Models
                 }
             };
 
-            Handwerk = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Handwerk), new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Charisma, ImagoAttribut.Charisma })
+            Handwerk = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Handwerk), new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Charisma, ImagoAttribut.Wahrnehmung })
             {
                 Fertigkeiten = new List<Fertigkeit>()
                 {
@@ -168,30 +164,36 @@ namespace ImagoCore.Models
         {
             return this.GetEnumerator();
         }
+        #endregion
+
+        #region ICollection<T>
+        public int Count => 8;
+
+        public bool IsReadOnly => true;
 
         public void Add( FertigkeitsKategorie item )
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public bool Contains( FertigkeitsKategorie item )
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void CopyTo( FertigkeitsKategorie[] array, int arrayIndex )
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public bool Remove( FertigkeitsKategorie item )
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
         #endregion
     }

@@ -16,11 +16,7 @@ namespace ImagoCore.Models
         public Attribut Intelligenz { get; set; }
         public Attribut Willenskraft { get; set; }
         public Attribut Charisma { get; set; }
-        public Attribut Wahrnehmung { get; set; }
-
-        public int Count => 7;
-
-        public bool IsReadOnly => true;
+        public Attribut Wahrnehmung { get; set; }        
 
         public AttributeCollection()
         {
@@ -74,37 +70,43 @@ namespace ImagoCore.Models
         }
         #endregion
 
+        #region ICollection<T>       
+        public int Count => 7;
+
+        public bool IsReadOnly => true;
+
+        public void Add( Attribut item )
+        {
+            throw new NotSupportedException();
+        }
+
+        public void Clear()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool Contains( Attribut item )
+        {
+            throw new NotSupportedException();
+        }
+
+        public void CopyTo( Attribut[] array, int arrayIndex )
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool Remove( Attribut item )
+        {
+            throw new NotSupportedException();
+        }
+        #endregion        
+
         #region INFWC
         public event EventHandler<FaktischerWertChangedEventArgs> FaktischerWertChanged;
         public virtual void OnFaktischerWertChanged(object sender, FaktischerWertChangedEventArgs args)
         {
             FaktischerWertChanged?.Invoke(this, args);
-        }
-
-        public void Add( Attribut item )
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Contains( Attribut item )
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CopyTo( Attribut[] array, int arrayIndex )
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove( Attribut item )
-        {
-            throw new NotImplementedException();
-        }
+        }        
         #endregion
     }
 }

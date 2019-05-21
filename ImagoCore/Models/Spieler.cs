@@ -84,7 +84,6 @@ namespace ImagoCore.Models
                 }
             }
 
-
             Initiative.BerechneNatuerlicherWert(values);
             SchadensMod.BerechneNatuerlicherWert(values);
             EgoRegeneration.BerechneNatuerlicherWert(values);
@@ -98,9 +97,6 @@ namespace ImagoCore.Models
                 }
             }
         }
-
-
-
 
         private void ConstructAbhaengigkeiten()
         {
