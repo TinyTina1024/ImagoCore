@@ -12,8 +12,9 @@ namespace ImagoCore.Models
 
         public event EventHandler<FaktischerWertChangedEventArgs> FaktischerWertChanged;        
 
-        public FertigkeitsKategorie(ImagoEntitaet identifier, ImagoAttribut[] attributReferenzen) : base(identifier)
-        {            
+        public FertigkeitsKategorie(ImagoEntitaet identifier, ImagoAttribut[] attributReferenzen, IEnumerable<Fertigkeit> fertigkeiten) : base(identifier)
+        {
+            Fertigkeiten = new HashSet<Fertigkeit>( fertigkeiten );
             AttributReferenzen = new AttributReferenzen( attributReferenzen );
             _kategorieBerechnenStrategy = new FertigkeitsKategorieNatuerlicherWertBerechnenStrategy(attributReferenzen);            
         }
@@ -22,7 +23,7 @@ namespace ImagoCore.Models
 
         }
 
-        public List<Fertigkeit> Fertigkeiten { get; set; }
+        public HashSet<Fertigkeit> Fertigkeiten { get;  }
         private INatuerlicherWertBerechnenStrategy _kategorieBerechnenStrategy { get; }       
 
         public void BerechneNatuerlicherWert(Dictionary<ImagoAttribut, int> values)

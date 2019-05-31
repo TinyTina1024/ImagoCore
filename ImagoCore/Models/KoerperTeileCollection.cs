@@ -6,18 +6,16 @@ using static ImagoCore.Models.ImagoEntitaetFactory;
 
 namespace ImagoCore.Models
 {
-    public class KoerperTeileCollection : ICollection<KoerperTeil>
+    public class KoerperTeileCollection : IReadOnlyCollection<KoerperTeil>
     {
-        public KoerperTeil Kopf { get; set; }
-        public KoerperTeil Torso { get; set; }
-        public KoerperTeil ArmLinks { get; set; }
-        public KoerperTeil ArmRechts { get; set; }
-        public KoerperTeil BeinLinks { get; set; }
-        public KoerperTeil BeinRechts { get; set; }
+        public KoerperTeil Kopf { get;  }
+        public KoerperTeil Torso { get;  }
+        public KoerperTeil ArmLinks { get;  }
+        public KoerperTeil ArmRechts { get;  }
+        public KoerperTeil BeinLinks { get;  }
+        public KoerperTeil BeinRechts { get;  }
 
-        public int Count => 6;
-
-        public bool IsReadOnly => true;
+        public int Count => 6;        
 
         public KoerperTeileCollection()
         {

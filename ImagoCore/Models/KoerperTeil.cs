@@ -12,7 +12,7 @@ namespace ImagoCore.Models
         private ITrefferpunkteBerechnenStrategy _trefferpunkteBerechnenStrategy;
         private int _currentTrefferpunkte;
 
-        public ImagoEntitaet Identifier { get; set; }
+        public ImagoEntitaet Identifier { get; }
         public int MaxTrefferPunkte { get; private set; }
         public int CurrentTrefferPunkte { get { return _currentTrefferpunkte; } set { _currentTrefferpunkte = value; OnPropertyChanged(); } }
         public List<KoerperTeilZustand> Zustaende { get; set; }

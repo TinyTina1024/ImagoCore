@@ -41,7 +41,7 @@ namespace ImagoCore.Tests.Models
         public void berechneNatuerlicherWert_KategorieHasAttribute_NatuerlicherWertVeraendert()
         {
             var id = ImagoEntitaetFactory.GetNewEntitaet(ImagoFertigkeitsKategorie.Nahkampf);
-            var fk = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke , ImagoAttribut.Staerke });
+            var fk = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke , ImagoAttribut.Staerke }, new Fertigkeit[] { } );
             fk.NatuerlicherWert = 0;
 
             var testDaten = new Dictionary<ImagoAttribut, int>();
@@ -56,7 +56,7 @@ namespace ImagoCore.Tests.Models
         public void ChangeNw_RaisesEvent()
         {
             var id = ImagoEntitaetFactory.GetNewEntitaet(ImagoFertigkeitsKategorie.Nahkampf);
-            var kategorie = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke });
+            var kategorie = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke }, new Fertigkeit[] { } );
             var args = new FaktischerWertChangedEventArgs(id);
 
             var evt = Assert.RaisesAny<FaktischerWertChangedEventArgs>(
@@ -73,7 +73,7 @@ namespace ImagoCore.Tests.Models
         public void ChangeModifikation_RaisesEvent()
         {
             var id = ImagoEntitaetFactory.GetNewEntitaet(ImagoFertigkeitsKategorie.Nahkampf);
-            var kategorie = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke });
+            var kategorie = new FertigkeitsKategorie(id, new ImagoAttribut[] { ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke, ImagoAttribut.Staerke }, new Fertigkeit[] { } );
             var args = new FaktischerWertChangedEventArgs(id);
 
             var evt = Assert.RaisesAny<FaktischerWertChangedEventArgs>(

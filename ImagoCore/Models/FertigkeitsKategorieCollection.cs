@@ -7,7 +7,7 @@ using static ImagoCore.Models.ImagoEntitaetFactory;
 
 namespace ImagoCore.Models
 {
-    public class FertigkeitsKategorieCollection : ICollection<FertigkeitsKategorie>
+    public class FertigkeitsKategorieCollection : IReadOnlyCollection<FertigkeitsKategorie>
     {     
         public FertigkeitsKategorie Bewegung { get; set; }
         public FertigkeitsKategorie Nahkampf { get; set; }
@@ -20,120 +20,94 @@ namespace ImagoCore.Models
 
         public FertigkeitsKategorieCollection()
         {
-            Bewegung = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Bewegung), new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Konstitution, ImagoAttribut.Konstitution })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Ausweichen)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Klettern)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Koerperbeherrschung)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Laufen)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Reiten)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schwimmen)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Springen)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Tanzen))
-                }
+            Bewegung = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Bewegung ),
+                new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Konstitution, ImagoAttribut.Konstitution },
+                new Fertigkeit[]{   new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Ausweichen)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Klettern)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Koerperbeherrschung)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Laufen)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Reiten)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schwimmen)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Springen)),
+                                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Tanzen)) }
+            );
 
-            };
-
-            Nahkampf = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Nahkampf), new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Konstitution, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Dolche)),
+            Nahkampf = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Nahkampf ),
+                new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Konstitution, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Dolche)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Hiebwaffen)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schilde)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schwerter)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.StaebeSpeere)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Waffenlos)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Zweihaender)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Springen)),
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Springen)) } );
 
-            Fernkampf = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Fernkampf), new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Armbrueste)),
+
+            Fernkampf = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Fernkampf ),
+                new ImagoAttribut[4] { ImagoAttribut.Staerke, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Geschicklichkeit, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Armbrueste)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Blasrohre)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Boegen)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schleuder)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Wurfgeschosse)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Wurfwaffen))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Wurfwaffen)) } );
 
-            Heimlichkeit = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Heimlichkeit), new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Willenskraft, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schleichen)),
+
+            Heimlichkeit = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Heimlichkeit ),
+                new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Willenskraft, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Schleichen)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Sicherheit)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.SpurenLesen)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Taschendiebstahl)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Verstecken)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Verbergen)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Verkleiden))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Verkleiden)) } );
 
-            Webkunst = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Webkunst), new ImagoAttribut[4] { ImagoAttribut.Willenskraft, ImagoAttribut.Willenskraft, ImagoAttribut.Charisma, ImagoAttribut.Charisma })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Bewusstsein)),
+
+            Webkunst = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Webkunst ),
+                new ImagoAttribut[4] { ImagoAttribut.Willenskraft, ImagoAttribut.Willenskraft, ImagoAttribut.Charisma, ImagoAttribut.Charisma },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Bewusstsein)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Chaos)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Einfalt)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Ekstase)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Kontrolle)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Leere)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Materie)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Struktur))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Struktur)) } );
 
-            Wissenschaft = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Wissenschaft), new ImagoAttribut[4] { ImagoAttribut.Intelligenz, ImagoAttribut.Intelligenz, ImagoAttribut.Intelligenz, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Anatomie)),
+
+            Wissenschaft = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Wissenschaft ),
+                new ImagoAttribut[4] { ImagoAttribut.Intelligenz, ImagoAttribut.Intelligenz, ImagoAttribut.Intelligenz, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Anatomie)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Literatur)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Mathematik)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Philosophie)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Physik)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Soziologie)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Sphaerologie)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.WirtschaftRecht))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.WirtschaftRecht)) } );
 
-            Handwerk = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Handwerk), new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Charisma, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Alchemie)),
+
+            Handwerk = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Handwerk ),
+                new ImagoAttribut[4] { ImagoAttribut.Geschicklichkeit, ImagoAttribut.Intelligenz, ImagoAttribut.Charisma, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] {new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Alchemie)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Heiler)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Naturkunde)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Sprache)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Strategie)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Wundscher))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Wundscher)) } );
 
-            Soziales = new FertigkeitsKategorie(GetNewEntitaet(ImagoFertigkeitsKategorie.Soziales), new ImagoAttribut[4] { ImagoAttribut.Willenskraft, ImagoAttribut.Charisma, ImagoAttribut.Charisma, ImagoAttribut.Wahrnehmung })
-            {
-                Fertigkeiten = new List<Fertigkeit>()
-                {
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Anfuehren)),
+
+            Soziales = new FertigkeitsKategorie( GetNewEntitaet( ImagoFertigkeitsKategorie.Soziales ),
+                new ImagoAttribut[4] { ImagoAttribut.Willenskraft, ImagoAttribut.Charisma, ImagoAttribut.Charisma, ImagoAttribut.Wahrnehmung },
+                new Fertigkeit[] { new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Anfuehren)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Ausdruck)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Einschuechtern)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Empathie)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Gesellschafter)),
                     new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.Manipulation)),
-                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.SozialeAdaption))
-                }
-            };
+                    new Fertigkeit(GetNewEntitaet(ImagoFertigkeit.SozialeAdaption))} );           
         }
 
         public FertigkeitsKategorie GetParent(Fertigkeit fertigkeit)
@@ -166,35 +140,8 @@ namespace ImagoCore.Models
         }
         #endregion
 
-        #region ICollection<T>
-        public int Count => 8;
-
-        public bool IsReadOnly => true;
-
-        public void Add( FertigkeitsKategorie item )
-        {
-            throw new NotSupportedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool Contains( FertigkeitsKategorie item )
-        {
-            throw new NotSupportedException();
-        }
-
-        public void CopyTo( FertigkeitsKategorie[] array, int arrayIndex )
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool Remove( FertigkeitsKategorie item )
-        {
-            throw new NotSupportedException();
-        }
+        #region IReadOnlyCollection<T>
+        public int Count => 8;        
         #endregion
     }
 }

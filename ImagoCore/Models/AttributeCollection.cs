@@ -8,7 +8,7 @@ using static ImagoCore.Models.ImagoEntitaetFactory;
 
 namespace ImagoCore.Models
 {
-    public class AttributeCollection : ICollection<Attribut>, INotifyFaktischerWertChanged
+    public class AttributeCollection : IReadOnlyCollection<Attribut>, INotifyFaktischerWertChanged
     {
         public Attribut Staerke { get; set; }
         public Attribut Geschicklichkeit { get; set; }
@@ -70,35 +70,8 @@ namespace ImagoCore.Models
         }
         #endregion
 
-        #region ICollection<T>       
-        public int Count => 7;
-
-        public bool IsReadOnly => true;
-
-        public void Add( Attribut item )
-        {
-            throw new NotSupportedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool Contains( Attribut item )
-        {
-            throw new NotSupportedException();
-        }
-
-        public void CopyTo( Attribut[] array, int arrayIndex )
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool Remove( Attribut item )
-        {
-            throw new NotSupportedException();
-        }
+        #region IReadOnlyCollection<T>       
+        public int Count => 7;        
         #endregion        
 
         #region INFWC
