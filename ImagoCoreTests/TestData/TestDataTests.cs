@@ -5,6 +5,7 @@ using Xunit;
 using ImagoCore.TestData;
 using System.Linq;
 using Xunit.Abstractions;
+using ImagoCore.Models;
 
 namespace ImagoCore.Tests.TestData
 {
@@ -29,6 +30,17 @@ namespace ImagoCore.Tests.TestData
                 spieler.Attribute.Willenskraft.SteigerungsWert, spieler.Attribute.Charisma.SteigerungsWert, spieler.Attribute.Wahrnehmung.SteigerungsWert );
 
             Assert.False( triplicates );
+        }
+
+        [Fact]
+        public void GetTestSpieler_AddToCollection()
+        {
+            List<Spieler> result = new List<Spieler>();
+            var spieler = ImagoCore.TestData.TestData.GetTestSpieler();
+            Action testCode = () => result.Add(spieler);
+
+            var ex = Record.Exception( testCode );
+            Assert.Null( ex );
         }
     }
 }

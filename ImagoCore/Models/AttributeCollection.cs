@@ -8,7 +8,7 @@ using static ImagoCore.Models.ImagoEntitaetFactory;
 
 namespace ImagoCore.Models
 {
-    public class AttributeCollection : IReadOnlyCollection<Attribut>, INotifyFaktischerWertChanged
+    public class AttributeCollection : IEnumerable<Attribut>, INotifyFaktischerWertChanged
     {
         public Attribut Staerke { get; set; }
         public Attribut Geschicklichkeit { get; set; }
@@ -68,11 +68,7 @@ namespace ImagoCore.Models
         {
             return this.GetEnumerator();
         }
-        #endregion
-
-        #region IReadOnlyCollection<T>       
-        public int Count => 7;        
-        #endregion        
+        #endregion           
 
         #region INFWC
         public event EventHandler<FaktischerWertChangedEventArgs> FaktischerWertChanged;

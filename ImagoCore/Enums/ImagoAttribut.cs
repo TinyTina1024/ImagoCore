@@ -15,6 +15,7 @@ namespace ImagoCore.Enums
         public static readonly ImagoAttribut Wahrnehmung = new ImagoAttribut(6, "Wahrnehmung", "Wa");
         
         public ImagoAttribut() { }
+
         private ImagoAttribut(int value, string displayName, string abbreviation) : base(value, displayName, abbreviation) { }
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System;
 using Xunit;
 using Xunit.Abstractions;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ImagoCore.Tests.Models
 {
@@ -220,5 +222,36 @@ namespace ImagoCore.Tests.Models
             Assert.True( kategorie.Erfahrung == 0 );
         }
 
+        [Fact]
+        public void SerializeSpieler()
+        {
+            var mock = new Mock<FertigkeitVeraendernService>();
+            var spieler1 = new Spieler( mock.Object );
+            spieler1.Name = "TestSpieler";
+            var json = JsonConvert.SerializeObject( spieler1 );
+
+            var path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData ), "Testdaten" );
+            Directory.CreateDirectory( path );
+            var fileName = string.Concat( spieler1.Name, ".json" );
+            var fullPath = Path.Combine( path, fileName );
+
+            using ( StreamWriter sw = new StreamWriter( fullPath , false ) )
+            {
+                sw.WriteLine( json );
+            }
+
+            FileInfo file = new FileInfo( fullPath );
+            Assert.True( file.Exists );
+
+            string content;
+            using ( StreamReader sr = file.OpenText() )
+            {
+                content = sr.ReadToEnd();
+            }
+
+            Spieler spieler2 = JsonConvert.DeserializeObject<Spieler>( content );
+
+            Assert.Equal( spieler2.Name, spieler1.Name );
+        }
     }
 }
